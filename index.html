@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VPN Portal - Download</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Padauk:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-color: #00ff88; /* Ninja Green */
+            --bg-color: #121212;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --text-color: #ffffff;
+            --secondary-text: #a0a0a0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Padauk', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            justify_content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: radial-gradient(circle at 50% 50%, #1a2e25 0%, #121212 70%);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Logo Section */
+        .logo-area {
+            margin-bottom: 30px;
+        }
+
+        .logo-icon {
+            font-size: 60px;
+            color: var(--primary-color);
+            filter: drop-shadow(0 0 10px rgba(0, 255, 136, 0.5));
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        h1 span {
+            color: var(--primary-color);
+            font-style: italic;
+        }
+
+        .subtitle {
+            color: var(--secondary-text);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Cards */
+        .download-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.2s, border-color 0.2s;
+            backdrop-filter: blur(10px);
+        }
+
+        .download-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary-color);
+        }
+
+        .os-icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .version-info {
+            font-size: 12px;
+            color: var(--secondary-text);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        /* Buttons */
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 12px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-android {
+            background: var(--primary-color);
+            color: #000;
+            box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
+        }
+
+        .btn-android:hover {
+            background: #00cc6a;
+            box-shadow: 0 6px 20px rgba(0, 255, 136, 0.5);
+        }
+
+        .btn-ios {
+            background: #007aff; /* Apple Blue */
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 122, 255, 0.3);
+        }
+
+        .btn-ios:hover {
+            background: #0062cc;
+        }
+
+        .btn i {
+            margin-right: 10px;
+        }
+
+        /* Info Text */
+        .note {
+            font-size: 12px;
+            color: var(--secondary-text);
+            margin-top: 10px;
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 12px;
+            color: #555;
+        }
+
+        /* Animation */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .new-badge {
+            background: #ff4757;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 10px;
+            margin-left: 5px;
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="logo-area">
+            <i class="fa-solid fa-user-ninja logo-icon"></i>
+            <h1>VPN <span>ninja</span> Portal</h1>
+            <p class="subtitle">မြန်မာပြည်အတွက် အမြန်ဆုံးနှင့် လုံခြုံစိတ်ချရသော VPN ဝန်ဆောင်မှု</p>
+        </div>
+
+        <div class="download-card">
+            <i class="fa-brands fa-android os-icon" style="color: #3ddc84;"></i>
+            <div class="card-title">Android အတွက်</div>
+            <span class="version-info">Version 1.0.0 • Direct APK</span>
+            
+            <a href="YOUR_APK_DOWNLOAD_LINK_HERE" class="btn btn-android">
+                <i class="fa-solid fa-download"></i> Download APK
+            </a>
+            <p class="note">ဖိုင်ဒေါင်းပြီးပါက Install လုပ်၍ ချက်ချင်းအသုံးပြုနိုင်ပါသည်။</p>
+        </div>
+
+        <div class="download-card">
+            <i class="fa-brands fa-apple os-icon" style="color: #fff;"></i>
+            <div class="card-title">iOS အတွက် <span class="new-badge">Beta</span></div>
+            <span class="version-info">TestFlight Public Beta</span>
+
+            <a href="YOUR_TESTFLIGHT_LINK_HERE" class="btn btn-ios">
+                <i class="fa-brands fa-app-store-ios"></i> Join TestFlight
+            </a>
+            <p class="note">TestFlight App ကို အရင် Install လုပ်ထားရန် လိုအပ်ပါသည်။</p>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 VPN ninja. All rights reserved.</p>
+            <p style="margin-top: 5px;">Developed by Ghost Developer</p>
+        </footer>
+    </div>
+
+    <script>
+        // အသုံးပြုသူက iOS လား Android လား စစ်ဆေးပြီး သက်ဆိုင်ရာကို အပေါ်တင်ပေးခြင်း
+        function detectOS() {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                // iOS ဖြစ်လျှင် iOS Card ကို အပေါ်သို့ရွှေ့မည်
+                var container = document.querySelector('.container');
+                var iosCard = document.querySelector('.download-card:nth-child(3)'); // iOS card position
+                var androidCard = document.querySelector('.download-card:nth-child(2)');
+                
+                // ရိုးရှင်းသောနည်းလမ်းဖြင့် မှာချင်လျှင် HTML structure ကိုပြောင်းလဲနိုင်သည်
+                // သို့သော် user experience အရ နှစ်ခုလုံးပြထားတာ အကောင်းဆုံးပါ
+            }
+        }
+        detectOS();
+    </script>
+</body>
+</html>
