@@ -10,12 +10,12 @@
 
     <style>
         :root {
-            --primary-color: #00ff88; /* Ninja Green */
+            --primary-color: #00ff88;
             --bg-color: #121212;
             --card-bg: rgba(255, 255, 255, 0.05);
             --text-color: #ffffff;
             --secondary-text: #a0a0a0;
-            --telegram-blue: #0088CC; /* Telegram Blue */
+            --telegram-blue: #0088CC; 
         }
 
         * {
@@ -29,7 +29,6 @@
             background-color: var(--bg-color);
             color: var(--text-color);
             display: flex;
-            /* Changed to flex-start to prevent overflow on small screens */
             justify-content: flex-start; 
             align-items: center;
             min-height: 100vh;
@@ -41,10 +40,10 @@
             max-width: 480px;
             padding: 20px;
             text-align: center;
-            margin: auto; /* Center the container */
+            margin: auto;
         }
 
-        /* Logo Section */
+
         .logo-area {
             margin-bottom: 30px;
         }
@@ -61,11 +60,11 @@
             font-weight: bold;
             letter-spacing: 1px;
             margin-bottom: 5px;
-            color: var(--text-color); /* Portal (အဖြူ) */
+            color: var(--text-color); 
         }
 
         h1 span {
-            color: var(--primary-color); /* VPN (အစိမ်း) */
+            color: var(--primary-color); 
         }
 
         .subtitle {
@@ -143,7 +142,6 @@
             background: #0062cc;
         }
 
-        /* NEW TELEGRAM BUTTON STYLE */
         .btn-telegram {
             background: var(--telegram-blue); 
             color: white;
@@ -246,10 +244,9 @@
         function detectOS() {
             var userAgent = navigator.userAgent || navigator.vendor || window.opera;
             if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-                // iOS ဖုန်းဖြင့်ကြည့်လျှင် iOS card ကို အပေါ်တင်မည်
                 var container = document.querySelector('.container');
-                var iosCard = document.querySelector('.download-card:nth-child(4)'); // Index is 4 now
-                var androidCard = document.querySelector('.download-card:nth-child(3)'); // Index is 3 now
+                var iosCard = document.querySelector('.download-card:nth-child(4)'); 
+                var androidCard = document.querySelector('.download-card:nth-child(3)'); 
                 container.insertBefore(iosCard, androidCard);
             }
         }
