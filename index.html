@@ -58,11 +58,11 @@
             font-weight: bold;
             letter-spacing: 1px;
             margin-bottom: 5px;
+            color: var(--text-color); /* Portal (အဖြူ) */
         }
 
         h1 span {
-            color: var(--primary-color);
-            font-style: italic;
+            color: var(--primary-color); /* VPN (အစိမ်း) */
         }
 
         .subtitle {
@@ -180,7 +180,8 @@
     <div class="container">
         <div class="logo-area">
             <i class="fa-solid fa-user-ninja logo-icon"></i>
-            <h1>VPN <span>ninja</span> Portal</h1>
+            
+            <h1><span>VPN</span> Portal</h1> 
             <p class="subtitle">မြန်မာပြည်အတွက် အမြန်ဆုံးနှင့် လုံခြုံစိတ်ချရသော VPN ဝန်ဆောင်မှု</p>
         </div>
 
@@ -207,23 +208,20 @@
         </div>
 
         <footer>
-            <p>&copy; 2025 VPN ninja. All rights reserved.</p>
+            <p>&copy; 2025 VPN Portal. All rights reserved.</p>
             <p style="margin-top: 5px;">Developed by Ghost Developer</p>
         </footer>
     </div>
 
     <script>
-        // အသုံးပြုသူက iOS လား Android လား စစ်ဆေးပြီး သက်ဆိုင်ရာကို အပေါ်တင်ပေးခြင်း
         function detectOS() {
             var userAgent = navigator.userAgent || navigator.vendor || window.opera;
             if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-                // iOS ဖြစ်လျှင် iOS Card ကို အပေါ်သို့ရွှေ့မည်
+                // iOS ဖုန်းဖြင့်ကြည့်လျှင် iOS card ကို အပေါ်တင်မည်
                 var container = document.querySelector('.container');
-                var iosCard = document.querySelector('.download-card:nth-child(3)'); // iOS card position
+                var iosCard = document.querySelector('.download-card:nth-child(3)'); 
                 var androidCard = document.querySelector('.download-card:nth-child(2)');
-                
-                // ရိုးရှင်းသောနည်းလမ်းဖြင့် မှာချင်လျှင် HTML structure ကိုပြောင်းလဲနိုင်သည်
-                // သို့သော် user experience အရ နှစ်ခုလုံးပြထားတာ အကောင်းဆုံးပါ
+                container.insertBefore(iosCard, androidCard);
             }
         }
         detectOS();
