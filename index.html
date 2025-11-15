@@ -10,12 +10,12 @@
 
     <style>
         :root {
-            --primary-color: #00ff88;
+            --primary-color: #00ff88; /* Ninja Green */
             --bg-color: #121212;
             --card-bg: rgba(255, 255, 255, 0.05);
             --text-color: #ffffff;
             --secondary-text: #a0a0a0;
-            --telegram-blue: #0088CC; 
+            --telegram-blue: #0088CC; /* Telegram Blue */
         }
 
         * {
@@ -43,16 +43,9 @@
             margin: auto;
         }
 
-
+        /* Logo Section */
         .logo-area {
             margin-bottom: 30px;
-        }
-
-        .logo-icon {
-            font-size: 60px;
-            color: var(--primary-color);
-            filter: drop-shadow(0 0 10px rgba(0, 255, 136, 0.5));
-            margin-bottom: 10px;
         }
 
         h1 {
@@ -60,11 +53,11 @@
             font-weight: bold;
             letter-spacing: 1px;
             margin-bottom: 5px;
-            color: var(--text-color); 
+            color: var(--text-color); /* Portal (အဖြူ) */
         }
 
         h1 span {
-            color: var(--primary-color); 
+            color: var(--primary-color); /* VPN (အစိမ်း) */
         }
 
         .subtitle {
@@ -142,6 +135,7 @@
             background: #0062cc;
         }
 
+        /* TELEGRAM BUTTON STYLE */
         .btn-telegram {
             background: var(--telegram-blue); 
             color: white;
@@ -193,19 +187,9 @@
         <div class="logo-area">
             <h1><span>VPN</span> Portal</h1> 
 
-            <p class="subtitle">ဒီ Application လေးကို မြနမာနိုင်ငံတွက် Speed အမြန်ဆုံးနှင့် လုံခြုံ စိတ်ချရစွာအသုံးပြုနိင်ရည်ရွယ်ပြီးဖန်တီးပေထားတာဖြစ်ပါတယ်</p>
+            <p class="subtitle">ဒီ Application လေးကို မြန်မာနိုင်ငံအတွက်  Speed အမြန်ဆုံးနှင့် လုံခြုံစိတ်ချရစွာ အသုံးပြုနိုင်ရန် ရည်ရွယ်ပြီး ဖန်တီးပေးထားတာဖြစ်ပါတယ်**</p>
         </div>
 
-        <div class="download-card" style="border-color: var(--telegram-blue);">
-            <i class="fa-brands fa-telegram os-icon" style="color: var(--telegram-blue);"></i>
-            <div class="card-title">Trial Account ရယူရန်</div>
-            <span class="version-info">အခမဲ့ စမ်းသပ်သုံးစွဲမှု ချက်ချင်း စတင်ပါ</span>
-
-            <a href="https://t.me/vpnportatbot" class="btn btn-telegram">
-                <i class="fa-brands fa-telegram"></i> @vpnportatbot
-            </a>
-            <p class="note">Bot ထဲရောက်လျှင် **`/trial`** လို့ ရိုက်ပြီး Account စတင်ဖန်တီးနိုင်ပါသည်။</p>
-        </div>
         <div class="download-card">
             <i class="fa-brands fa-android os-icon" style="color: #3ddc84;"></i>
             <div class="card-title">Android အတွက်</div>
@@ -234,6 +218,17 @@
             </p>
         </div>
 
+        <div class="download-card" style="border-color: var(--telegram-blue);">
+            <i class="fa-brands fa-telegram os-icon" style="color: var(--telegram-blue);"></i>
+            <div class="card-title">Trial Account ရယူရန်</div>
+            <span class="version-info">အခမဲ့ စမ်းသပ်သုံးစွဲမှု ချက်ချင်း စတင်ပါ</span>
+
+            <a href="https://t.me/vpnportatbot" class="btn btn-telegram">
+                <i class="fa-brands fa-telegram"></i> @vpnportatbot
+            </a>
+            <p class="note">Bot ထဲရောက်လျှင် **`/trial`** လို့ ရိုက်ပြီး Account စတင်ဖန်တီးနိုင်ပါသည်။</p>
+        </div>
+
         <footer>
             <p>&copy; 2025 VPN Portal. All rights reserved.</p>
             <p style="margin-top: 5px;">Developed by Ghost Developer</p>
@@ -244,9 +239,12 @@
         function detectOS() {
             var userAgent = navigator.userAgent || navigator.vendor || window.opera;
             if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                // iOS ဖုန်းဖြင့်ကြည့်လျှင် iOS card ကို Android ရဲ့ အပေါ်မှာ တင်မည်
+                // iOS Card is the 3rd child, Android Card is the 2nd child
+                var iosCard = document.querySelector('.container > .download-card:nth-child(3)'); 
+                var androidCard = document.querySelector('.container > .download-card:nth-child(2)');
+                
                 var container = document.querySelector('.container');
-                var iosCard = document.querySelector('.download-card:nth-child(4)'); 
-                var androidCard = document.querySelector('.download-card:nth-child(3)'); 
                 container.insertBefore(iosCard, androidCard);
             }
         }
