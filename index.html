@@ -15,6 +15,7 @@
             --card-bg: rgba(255, 255, 255, 0.05);
             --text-color: #ffffff;
             --secondary-text: #a0a0a0;
+            --telegram-blue: #0088CC; /* Telegram Blue */
         }
 
         * {
@@ -28,7 +29,8 @@
             background-color: var(--bg-color);
             color: var(--text-color);
             display: flex;
-            justify_content: center;
+            /* Changed to flex-start to prevent overflow on small screens */
+            justify-content: flex-start; 
             align-items: center;
             min-height: 100vh;
             background-image: radial-gradient(circle at 50% 50%, #1a2e25 0%, #121212 70%);
@@ -39,6 +41,7 @@
             max-width: 480px;
             padding: 20px;
             text-align: center;
+            margin: auto; /* Center the container */
         }
 
         /* Logo Section */
@@ -140,6 +143,16 @@
             background: #0062cc;
         }
 
+        /* NEW TELEGRAM BUTTON STYLE */
+        .btn-telegram {
+            background: var(--telegram-blue); 
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 136, 204, 0.4);
+        }
+        .btn-telegram:hover {
+            background: #0073a8;
+        }
+
         .btn i {
             margin-right: 10px;
         }
@@ -151,6 +164,7 @@
             margin-top: 10px;
         }
 
+        /* Footer */
         footer {
             margin-top: 40px;
             font-size: 12px;
@@ -181,9 +195,19 @@
         <div class="logo-area">
             <h1><span>VPN</span> Portal</h1> 
 
-            <p class="subtitle">ဒီ Application လေးကို မြနမာနိုင်ငံတွက် Speed အမြန်ဆုံးနှင့် လုံခြုံ စိတ်ချရစွာအသုံးပြုနိင်ရည်ရွယ်ပြီးဖန်တီးပေထားတာဖြစ်ပါတယ် </p>
+            <p class="subtitle">ဒီ Application လေးကို မြနမာနိုင်ငံတွက် Speed အမြန်ဆုံးနှင့် လုံခြုံ စိတ်ချရစွာအသုံးပြုနိင်ရည်ရွယ်ပြီးဖန်တီးပေထားတာဖြစ်ပါတယ်</p>
         </div>
 
+        <div class="download-card" style="border-color: var(--telegram-blue);">
+            <i class="fa-brands fa-telegram os-icon" style="color: var(--telegram-blue);"></i>
+            <div class="card-title">Trial Account ရယူရန်</div>
+            <span class="version-info">အခမဲ့ စမ်းသပ်သုံးစွဲမှု ချက်ချင်း စတင်ပါ</span>
+
+            <a href="https://t.me/vpnportatbot" class="btn btn-telegram">
+                <i class="fa-brands fa-telegram"></i> @vpnportatbot
+            </a>
+            <p class="note">Bot ထဲရောက်လျှင် **`/trial`** လို့ ရိုက်ပြီး Account စတင်ဖန်တီးနိုင်ပါသည်။</p>
+        </div>
         <div class="download-card">
             <i class="fa-brands fa-android os-icon" style="color: #3ddc84;"></i>
             <div class="card-title">Android အတွက်</div>
@@ -224,8 +248,8 @@
             if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
                 // iOS ဖုန်းဖြင့်ကြည့်လျှင် iOS card ကို အပေါ်တင်မည်
                 var container = document.querySelector('.container');
-                var iosCard = document.querySelector('.download-card:nth-child(3)'); 
-                var androidCard = document.querySelector('.download-card:nth-child(2)');
+                var iosCard = document.querySelector('.download-card:nth-child(4)'); // Index is 4 now
+                var androidCard = document.querySelector('.download-card:nth-child(3)'); // Index is 3 now
                 container.insertBefore(iosCard, androidCard);
             }
         }
