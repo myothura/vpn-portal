@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VPN Portal - Download</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Padauk:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,700;1,800&family=Padauk:wght@400;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -15,17 +18,17 @@
             --card-bg: rgba(255, 255, 255, 0.05);
             --text-color: #ffffff;
             --secondary-text: #a0a0a0;
-            --telegram-blue: #0088CC; /* Telegram Blue */
+            --telegram-blue: #0088CC; 
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Padauk', sans-serif;
         }
 
         body {
+            font-family: 'Padauk', sans-serif; /* Default for Burmese text */
             background-color: var(--bg-color);
             color: var(--text-color);
             display: flex;
@@ -43,43 +46,70 @@
             margin: auto;
         }
 
-        /* Logo Section */
+        /* --- LOGO SECTION (LOGIN STYLE) --- */
         .logo-area {
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        .app-logo {
-            width: 100px;
-            height: 100px;
+        /* Recreating the Flutter Container Decoration with CSS */
+        .ninja-logo {
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
-            /* Placeholder Gradient if image not found */
-            background: radial-gradient(circle, rgba(0,255,136,0.2) 0%, rgba(0,0,0,0) 70%);
-            object-fit: contain;
-            margin-bottom: 15px;
+            
+            /* 1. Inner Background (Light Green Opacity) */
+            background: rgba(0, 255, 136, 0.1); 
+            
+            /* 2. Border */
             border: 2px solid rgba(0, 255, 136, 0.3);
-            box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
-            padding: 15px;
+            
+            /* 3. Glow Shadow */
+            box-shadow: 0 0 60px rgba(0, 255, 136, 0.2);
+            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            
+            /* Animation */
+            animation: logo-pulse 3s infinite ease-in-out;
         }
 
+        .ninja-icon {
+            font-size: 50px;
+            color: var(--primary-color);
+            /* Inner Glow for the Icon */
+            filter: drop-shadow(0 0 10px rgba(0, 255, 136, 0.6));
+        }
+
+        /* VPN PORTAL TEXT (Exo 2 Italic) */
         h1 {
-            font-size: 28px;
-            font-weight: bold;
-            letter-spacing: 1px;
+            font-family: 'Exo 2', sans-serif;
+            font-size: 32px;
+            font-weight: 800; /* Extra Bold */
+            font-style: italic; /* The Ninja Style */
+            letter-spacing: 2px;
+            text-transform: uppercase;
             margin-bottom: 5px;
-            color: var(--text-color); 
-        }
-
-        h1 span {
-            color: var(--primary-color); 
+            
+            /* Gradient Text Effect */
+            background: linear-gradient(to bottom, #00FFA3, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            
+            /* Fallback color */
+            color: white; 
         }
 
         .subtitle {
             color: var(--secondary-text);
             font-size: 14px;
             line-height: 1.6;
+            margin-top: 10px;
         }
 
         /* Cards */
@@ -132,8 +162,8 @@
         }
 
         .btn-android {
-            background: rgba(255, 255, 255, 0.1); /* Disabled Look */
-            color: #888;
+            background: rgba(255, 255, 255, 0.05);
+            color: #666;
             cursor: not-allowed;
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
@@ -143,43 +173,40 @@
             color: white;
             box-shadow: 0 4px 15px rgba(0, 122, 255, 0.3);
         }
-
-        .btn-ios:hover {
-            background: #0062cc;
-        }
+        .btn-ios:hover { background: #0062cc; }
 
         .btn-telegram {
             background: var(--telegram-blue); 
             color: white;
             box-shadow: 0 4px 15px rgba(0, 136, 204, 0.4);
         }
-        .btn-telegram:hover {
-            background: #0073a8;
-        }
+        .btn-telegram:hover { background: #0073a8; }
 
-        .btn i {
-            margin-right: 10px;
-        }
+        .btn i { margin-right: 10px; }
 
-        /* Info Text */
         .note {
             font-size: 12px;
             color: var(--secondary-text);
             margin-top: 10px;
         }
 
-        /* Footer */
         footer {
             margin-top: 40px;
             font-size: 12px;
             color: #555;
         }
 
-        /* Animation */
+        /* Animations */
         @keyframes pulse {
             0% { transform: scale(1); }
             50% { transform: scale(1.05); }
             100% { transform: scale(1); }
+        }
+        
+        @keyframes logo-pulse {
+            0% { box-shadow: 0 0 60px rgba(0, 255, 136, 0.2); }
+            50% { box-shadow: 0 0 80px rgba(0, 255, 136, 0.4); }
+            100% { box-shadow: 0 0 60px rgba(0, 255, 136, 0.2); }
         }
 
         .new-badge {
@@ -197,21 +224,23 @@
 
     <div class="container">
         <div class="logo-area">
-            <img src="https://raw.githubusercontent.com/myothura/vpn_configs/refs/heads/main/vpn_portal_logo.png" alt="VPN Portal Logo" class="app-logo" onerror="this.style.display='none'">
-            
-            <h1><span>VPN</span> Portal</h1> 
+            <div class="ninja-logo">
+                <i class="fa-solid fa-bolt-lightning ninja-icon"></i>
+            </div>
+
+            <h1>VPN PORTAL</h1> 
 
             <p class="subtitle">ဒီ Application လေးကို မြန်မာနိုင်ငံအတွက်  Speed အမြန်ဆုံးနှင့် လုံခြုံစိတ်ချရစွာ အသုံးပြုနိုင်ရန် ရည်ရွယ်ပြီး ဖန်တီးပေးထားတာဖြစ်ပါတယ်</p>
         </div>
 
-        <div class="download-card" style="opacity: 0.7;">
+        <div class="download-card" style="opacity: 0.6;">
             <i class="fa-brands fa-android os-icon" style="color: #3ddc84;"></i>
             <div class="card-title">Android အတွက်</div>
             <span class="version-info">Direct APK Download</span>
             
-            <a class="btn btn-android">
+            <div class="btn btn-android">
                 <i class="fa-solid fa-clock"></i> Coming Soon
-            </a>
+            </div>
             <p class="note">Android Version ကို မကြာမီ ထုတ်ပေးပါမည်။</p>
         </div>
 
@@ -224,7 +253,7 @@
                 <i class="fa-brands fa-app-store-ios"></i> Join TestFlight
             </a>
             
-            <p class="note" style="text-align: left; margin-top: 15px; background: rgba(255, 255, 255, 0.1); padding: 8px; border-radius: 8px;">
+            <p class="note" style="text-align: left; margin-top: 15px; background: rgba(255, 255, 255, 0.05); padding: 10px; border-radius: 8px; line-height: 1.6;">
                 <span style="color: #ff4757; font-weight: bold;">အရေးကြီးပါသည်:</span><br>
                 ၁။ App Store မှ **TestFlight App ကို ဦးစွာ Install** လုပ်ပါ။
                 <br>
@@ -250,22 +279,19 @@
     </div>
 
     <script>
+        // Auto-detect iOS users and move the iOS card to the top
         function detectOS() {
             var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-            // If user is on iPhone/iPad, move iOS card to the top
             if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
                 var container = document.querySelector('.container');
-                // Select the iOS card (which is currently the 3rd child: Logo -> Android -> iOS)
                 var iosCard = document.querySelector('.container > .download-card:nth-of-type(2)'); 
                 var androidCard = document.querySelector('.container > .download-card:nth-of-type(1)');
                 
-                // Swap positions
                 if(iosCard && androidCard) {
                     container.insertBefore(iosCard, androidCard);
                 }
             }
         }
-        // Run detection
         detectOS();
     </script>
 </body>
