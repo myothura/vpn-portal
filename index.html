@@ -46,6 +46,22 @@
         /* Logo Section */
         .logo-area {
             margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .app-logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            /* Placeholder Gradient if image not found */
+            background: radial-gradient(circle, rgba(0,255,136,0.2) 0%, rgba(0,0,0,0) 70%);
+            object-fit: contain;
+            margin-bottom: 15px;
+            border: 2px solid rgba(0, 255, 136, 0.3);
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+            padding: 15px;
         }
 
         h1 {
@@ -53,11 +69,11 @@
             font-weight: bold;
             letter-spacing: 1px;
             margin-bottom: 5px;
-            color: var(--text-color); /* Portal (အဖြူ) */
+            color: var(--text-color); 
         }
 
         h1 span {
-            color: var(--primary-color); /* VPN (အစိမ်း) */
+            color: var(--primary-color); 
         }
 
         .subtitle {
@@ -112,21 +128,18 @@
             font-weight: bold;
             font-size: 16px;
             transition: all 0.3s ease;
+            cursor: pointer;
         }
 
         .btn-android {
-            background: var(--primary-color);
-            color: #000;
-            box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
-        }
-
-        .btn-android:hover {
-            background: #00cc6a;
-            box-shadow: 0 6px 20px rgba(0, 255, 136, 0.5);
+            background: rgba(255, 255, 255, 0.1); /* Disabled Look */
+            color: #888;
+            cursor: not-allowed;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .btn-ios {
-            background: #007aff; /* Apple Blue */
+            background: #007aff; 
             color: white;
             box-shadow: 0 4px 15px rgba(0, 122, 255, 0.3);
         }
@@ -135,7 +148,6 @@
             background: #0062cc;
         }
 
-        /* TELEGRAM BUTTON STYLE */
         .btn-telegram {
             background: var(--telegram-blue); 
             color: white;
@@ -185,23 +197,25 @@
 
     <div class="container">
         <div class="logo-area">
+            <img src="https://raw.githubusercontent.com/myothura/vpn_configs/refs/heads/main/vpn_portal_logo.png" alt="VPN Portal Logo" class="app-logo" onerror="this.style.display='none'">
+            
             <h1><span>VPN</span> Portal</h1> 
 
             <p class="subtitle">ဒီ Application လေးကို မြန်မာနိုင်ငံအတွက်  Speed အမြန်ဆုံးနှင့် လုံခြုံစိတ်ချရစွာ အသုံးပြုနိုင်ရန် ရည်ရွယ်ပြီး ဖန်တီးပေးထားတာဖြစ်ပါတယ်</p>
         </div>
 
-        <div class="download-card">
+        <div class="download-card" style="opacity: 0.7;">
             <i class="fa-brands fa-android os-icon" style="color: #3ddc84;"></i>
             <div class="card-title">Android အတွက်</div>
-            <span class="version-info">Version 1.0.0 • Direct APK</span>
+            <span class="version-info">Direct APK Download</span>
             
-            <a href="https://github.com/myothura/vpn-portal/releases/download/v1.0.0/vpn_portal_v1.0.0.apk" class="btn btn-android">
-                <i class="fa-solid fa-download"></i> Download APK
+            <a class="btn btn-android">
+                <i class="fa-solid fa-clock"></i> Coming Soon
             </a>
-            <p class="note">ဖိုင်ဒေါင်းပြီးပါက Install လုပ်၍ ချက်ချင်းအသုံးပြုနိုင်ပါသည်။</p>
+            <p class="note">Android Version ကို မကြာမီ ထုတ်ပေးပါမည်။</p>
         </div>
 
-        <div class="download-card">
+        <div class="download-card" style="border-color: #007aff;">
             <i class="fa-brands fa-apple os-icon" style="color: #fff;"></i>
             <div class="card-title">iOS အတွက် <span class="new-badge">Beta</span></div>
             <span class="version-info">TestFlight Public Beta</span>
@@ -238,16 +252,20 @@
     <script>
         function detectOS() {
             var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            // If user is on iPhone/iPad, move iOS card to the top
             if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-                // iOS ဖုန်းဖြင့်ကြည့်လျှင် iOS card ကို Android ရဲ့ အပေါ်မှာ တင်မည်
-                // iOS Card is the 3rd child, Android Card is the 2nd child
-                var iosCard = document.querySelector('.container > .download-card:nth-child(3)'); 
-                var androidCard = document.querySelector('.container > .download-card:nth-child(2)');
-                
                 var container = document.querySelector('.container');
-                container.insertBefore(iosCard, androidCard);
+                // Select the iOS card (which is currently the 3rd child: Logo -> Android -> iOS)
+                var iosCard = document.querySelector('.container > .download-card:nth-of-type(2)'); 
+                var androidCard = document.querySelector('.container > .download-card:nth-of-type(1)');
+                
+                // Swap positions
+                if(iosCard && androidCard) {
+                    container.insertBefore(iosCard, androidCard);
+                }
             }
         }
+        // Run detection
         detectOS();
     </script>
 </body>
